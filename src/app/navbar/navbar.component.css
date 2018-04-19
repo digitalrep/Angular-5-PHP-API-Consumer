@@ -1,0 +1,17 @@
+nav {
+    background-color: dimgrey;
+}
+a {
+    color: #fff;
+}
+.active {
+    text-decoration: overline;
+}
+.masthead-brand {
+    background-color: dimgray;
+    color: #fff;
+    text-align: center;
+}
+.inner h3 {
+    margin-bottom: 0;
+}

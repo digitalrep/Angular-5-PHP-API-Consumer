@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
+import { User } from './models/user.model';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable} from 'rxjs/Rx';
 import { catchError } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 export class AuthenticateService {
 
   loginString = "http://puzzle.digitalrep.com.au/login";
+  registerString = "http://puzzle.digitalrep.com.au/register";
   refreshString = "http://puzzle.digitalrep.com.au/refresh";
 
   constructor(private http: HttpClient) { }
@@ -17,8 +18,13 @@ export class AuthenticateService {
 
   }
 
-  validate(user: User) {
-    if(user.email.length > 7 && user.password.length > 7) {
+  validate(user: User, isRegistering: boolean) {
+    if(isRegistering) {
+      if(user.name.length < 3) {
+        return false;
+      }
+    }
+    if(user.email.length > 6 && user.password.length > 6) {
       var regexp = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$");
       return regexp.test(user.email);
     } else {
@@ -29,12 +35,25 @@ export class AuthenticateService {
   login(user: User): Observable<any> {
     let httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/x-www-form-urlencoded',
-        //'Authorization': 'my-auth-token'
+        'Content-Type':  'application/x-www-form-urlencoded'
       })
     };
     let params = new HttpParams({ fromObject: {"email": user.email, "password": user.password }});
     return this.http.post<any>(this.loginString, params, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  register(user: User): Observable<any> {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded',
+        //'Authorization': 'my-auth-token'
+      })
+    };
+    let params = new HttpParams({ fromObject: {"name": user.name, "email": user.email, "password": user.password }});
+    return this.http.post<any>(this.registerString, params, httpOptions)
     .pipe(
       catchError(this.handleError)
     );

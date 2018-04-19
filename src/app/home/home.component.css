@@ -1,0 +1,23 @@
+.jumbotron {
+    text-align: center;
+    background-image: url("assets/bg2.gif");
+}
+p {
+    font-weight: 600;
+}
+.box-shadow img {
+    vertical-align: middle;
+}
+.marketing {
+    text-align: center;
+    margin: 80px auto;
+}
+footer {
+    background-color: grey;
+    width: 100%;
+    color: #fff;
+    padding: 12px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}

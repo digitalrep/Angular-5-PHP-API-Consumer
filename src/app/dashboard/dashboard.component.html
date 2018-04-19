@@ -1,3 +1,57 @@
-<p>
-  dashboard works!
-</p>
+  <div class="position-relative overflow-hidden p-3">
+
+  <h4 class="mb-3">New Bill:</h4>
+
+  <div class="row mb-3">
+
+    <div class="col-md-6">
+      <label for="billers">Biller</label>
+      <select class="custom-select d-block w-100" id="billers" required>
+        <option *ngFor="let blr of billers" value="{{ blr?.id }}">{{ blr?.name }}</option>
+      </select>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!--
+  <h4 class="mt-3 mb-3">Bills & Payments:</h4>
+
+  <ul class="list-group mb-3 col-md-2">
+    <li>
+      <div>
+        <h6>OC</h6>
+      </div>
+    </li>
+    <li *ngFor="let b of bills" class="list-group-item d-flex justify-content-between lh-condensed">
+      <div>
+        <h6>{{ b?.biller }}</h6>
+        <small class="text-muted">{{ b?.due }}</small> <br>
+        <small class="text-muted">{{ b?.category }}</small>
+      </div>
+      <small class="text-muted float-right">${{ b?.amount | price }}</small>
+    </li>
+  </ul>
+-->
+
+  <h4 class="mt-3 mb-3">Testing Sort:</h4>
+
+  <ul *ngFor="let t of bs" class="list-group mb-3 col-md-2">
+    {{ t }}
+    <li>
+      <div>
+        <h6>Test</h6>
+      </div>
+    </li>
+    <li *ngFor="let b of [Object.entries(t)]" class="list-group-item d-flex justify-content-between lh-condensed">
+      <div>
+        <h6>{{ t?.biller }}</h6>
+        <small class="text-muted">{{ t?.due }}</small> <br>
+        <small class="text-muted">{{ t?.category }}</small>
+      </div>
+      <small class="text-muted float-right">${{ t?.amount | price }}</small>
+    </li>
+  </ul>
+
+</div>

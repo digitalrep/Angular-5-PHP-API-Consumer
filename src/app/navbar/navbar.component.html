@@ -1,19 +1,9 @@
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" routerLink="/">Bills</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Bills</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-        </li>
-      </ul>
-    </div>
+<div class="inner">
+  <h3 class="masthead-brand p-3">Bills</h3>
+    <nav class="nav nav-masthead justify-content-center">
+    <a class="nav-link py-2" href="#">Home</a>
+    <a class="nav-link py-2" routerLink="/dashboard" routerLinkActive="active" href="#">Dashboard</a>
+    <a class="nav-link py-2" routerLink="/login" routerLinkActive="active" href="#">Login</a>
+    <a class="nav-link py-2" routerLink="/register" routerLinkActive="active" href="#">Register</a>
   </nav>
+</div>

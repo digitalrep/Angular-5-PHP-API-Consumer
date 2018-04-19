@@ -15,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
 import { AuthenticateService } from './authenticate.service';
 import { AuthguardService } from './authguard.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PricePipe } from './price.pipe';
+import { TimestampPipe } from './timestamp.pipe';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    PricePipe,
+    TimestampPipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
